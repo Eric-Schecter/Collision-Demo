@@ -1,14 +1,4 @@
-import { Texture } from "three"
 
-export enum KeyValue {
-  Enter = 13,
-  Z = 90,
-  Shift = 16,
-  Command = 17,
-  Esc = 27,
-  Delete = 8,
-  Space = 32,
-}
 
 export enum ClickValue {
   LeftClick = 1,
@@ -76,6 +66,6 @@ export enum Directions {
 }
 
 export type Index = {
-  xIndex: number,
-  yIndex: number,
+  rowIndex: number,
+  colIndex: number,
 }

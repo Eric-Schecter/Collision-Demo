@@ -1,12 +1,15 @@
 import { ObjData } from "./types";
 
 export const ratio = 2;
-export const key = 1;
-export const defaultFill = '#D5D2C4';
-export const defaultStroke = '#555348';
 export const isMac = navigator.userAgent.indexOf('Mac OS') !== -1;
 export const rowNum = 500;
 export const colNum = 500;
+export const mapParams = {
+  x:-25,
+  z:-25,
+  width:50,
+  height:50,
+}
 
 export const data: ObjData[] = [
   {
