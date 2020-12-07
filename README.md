@@ -28,6 +28,9 @@ npm start
 ```
 Then visit 'http://localhost:3000'
 
+## Usage
+<kbd>W/S/A/D</kbd> - Move Up/Down/Left/Right 
+
 ## Built with
 * React
 * Typescript
