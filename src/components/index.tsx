@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from './styles.module.scss';
 import { Scene, PerspectiveCamera } from 'three';
 import { System } from "./Objects";
@@ -11,6 +11,7 @@ const directions = [north, east, south, west];
 export default function App() {
   const ref = useRef<HTMLDivElement>(null);
   const refKeypress = useRef<Directions[]>([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     if (!ref.current) { return }
@@ -24,11 +25,18 @@ export default function App() {
     const stats = handleStats(ref.current);
 
     let timer = 0;
+    let mark = false;
     const animate = () => {
       stats.begin();
       renderer.render(scene, camera);
       const target = system.target;
       if (target) {
+        if (!mark) {
+          mark = true;
+          setTimeout(() => {
+            setIsLoaded(true);
+          }, 100);
+        }
         const { x, y, z } = target
         camera.position.set(x + 3, y + 2, z + 3);
         camera.lookAt(target);
@@ -63,11 +71,14 @@ export default function App() {
     window.addEventListener('keyup', up);
     return () => window.removeEventListener('keyup', up, false);
   }, [])
-
+  
   return (
-    <div
-      ref={ref}
-      className={styles.root}
-    />
+    <>
+      {!isLoaded && <div className={styles.loading} />}
+      <div
+        ref={ref}
+        className={styles.root}
+      />
+    </>
   );
 }
