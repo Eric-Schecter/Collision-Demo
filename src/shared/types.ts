@@ -1,10 +1,3 @@
-
-
-export enum ClickValue {
-  LeftClick = 1,
-  RightClick = 2,
-}
-
 export type Pos2D = {
   x: number,
   z: number,

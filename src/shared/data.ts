@@ -1,7 +1,5 @@
 import { ObjData } from "./types";
 
-export const ratio = 2;
-export const isMac = navigator.userAgent.indexOf('Mac OS') !== -1;
 export const rowNum = 500;
 export const colNum = 500;
 export const mapParams = {

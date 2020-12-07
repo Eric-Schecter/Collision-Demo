@@ -17,12 +17,9 @@ export default function App() {
     const { offsetWidth, offsetHeight } = ref.current;
     const scene = new Scene();
     const system = new System(scene);
-    // scene.fog = new Fog( 0xa0a0a0, 2, 40 );
     const camera = new PerspectiveCamera(45, offsetWidth / offsetHeight, 0.1, 1000);
     const renderer = handleRenderer(ref.current, offsetWidth, offsetHeight);
     handleLights(scene);
-    // handleControls(camera, renderer);
-    // handleFloor(scene);
     handleResize(camera, renderer);
     const stats = handleStats(ref.current);
 
@@ -66,33 +63,6 @@ export default function App() {
     window.addEventListener('keyup', up);
     return () => window.removeEventListener('keyup', up, false);
   }, [])
-
-  // useEffect(() => {
-  //   const importObj = {
-  //     env: {
-  //       memoryBase: 0,
-  //       tableBase: 0,
-  //       memory: new WebAssembly.Memory({ initial: 256 }),
-  //       table: new WebAssembly.Table({ initial: 2, element: 'anyfunc' }),
-  //       abort: console.log
-  //     }
-  //   }
-    
-  //   fetch('wasm/main.wasm')
-  //     .then(res => res.arrayBuffer())
-  //     .then(buffer => WebAssembly.instantiate(buffer, importObj))
-  //     .then(({ Module }: any) => {
-  //       // const a = instance.exports;
-  //       // console.log(a)
-  //       var instance = new Module.MyClass(10, "hello");
-  //       instance.incrementX();
-  //       // instance.x; // 12
-  //       instance.x = 20; // 20
-  //       Module.MyClass.getStringFromInstance(instance); // "hello"
-  //       instance.delete();
-  //     })
-
-  // }, [])
 
   return (
     <div
