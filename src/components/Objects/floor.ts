@@ -10,7 +10,7 @@ export default class Floor extends Terrain {
   }
   private create = () => {
     const geometry = new PlaneBufferGeometry(width, height);
-    const texture = new TextureLoader().load('textures/floor.jpg');
+    const texture = new TextureLoader().load('./textures/floor.jpg');
     texture.wrapS = RepeatWrapping;
     texture.wrapT = RepeatWrapping;
     texture.repeat.set(50, 50);
